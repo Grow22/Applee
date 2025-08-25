@@ -5,6 +5,6 @@ gradle
 out
 .gitignore
 gradlew
-build.gradle
 gradlew.bat
 settings.gradle
+.gitattributes
