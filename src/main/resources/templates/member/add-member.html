@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <link rel="stylesheet" th:href="@{/css/member-style.css}">
+</head>
+<body>
+
+<div class="container">
+    <h1>회원가입</h1>
+    <div th:if="${error}" style="color: red; margin-bottom: 15px;">
+        <p th:text="${error}">에러 메시지</p>
+    </div>
+
+    <form th:action="@{/member/add}" th:object="${member}" method="post">
+        <div>
+            <label for="name">이름</label>
+            <input type="text" id="name" th:field="*{name}">
+        </div>
+        <button type="submit">가입</button>
+    </form>
+</div>
+
+</body>
+</html>

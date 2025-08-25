@@ -1,0 +1,163 @@
+/* style.css 파일 전체 */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.add-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+.add-link a {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.add-link a:hover {
+    background-color: #5a6268;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+li:last-child {
+    border-bottom: none;
+}
+p.no-results {
+    text-align: center;
+    color: #888;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.table th {
+    background-color: #f2f2f2;
+    color: #555;
+}
+.table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+.comment-btn {
+    background-color: #e9ecef;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.comment-section {
+    display: none; /* 초기에는 숨김 */
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 2px solid #007bff;
+}
+
+
+.register-button {
+    background-color: #6c757d;
+    color: white;
+    padding: 7px 15px; /* ⬅️ 이 부분을 수정 */
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+.register-button:hover {
+    background-color: #5a6268;
+}
+
+/* 로그인과 회원가입 버튼을 묶는 새로운 컨테이너 스타일 */
+.header-container {
+    display: flex;
+    justify-content: flex-end; /* 모든 요소를 오른쪽 끝으로 정렬 */
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px; /* 로그인 폼과 회원가입 버튼 사이의 간격 */
+}
+
+/* 환영 메시지 스타일 */
+.welcome-message {
+    margin-right: 15px;
+    font-size: 16px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* 로그인 폼 컨테이너 */
+.login-form-container {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* 입력창과 버튼 사이 간격 */
+}
+
+.login-input {
+    width: 150px;
+    padding: 7px; /* ⬅️ 이 부분을 수정 */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.login-button {
+    padding: 7px 15px; /* ⬅️ 이 부분을 수정 */
+    background-color: #343a40;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.login-button:hover {
+    background-color: #212529;
+}

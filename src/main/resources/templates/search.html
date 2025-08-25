@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>간단한 검색 페이지</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="header-container">
+    <div class="login-form-container">
+        <form th:action="@{/member/login}" method="post">
+            <input type="text" name="name" placeholder="이름을 입력하세요." class="login-input">
+            <button type="submit" class="login-button">로그인</button>
+        </form>
+    </div>
+    <div class="register-container">
+        <a th:href="@{/member/add}" class="register-button">회원가입</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="welcome-message" th:if="${welcomeName}">
+        <p th:text="|${welcomeName}님 환영합니다!|"></p>
+    </div>
+    <h1>간단한 검색</h1>
+    <form th:action="@{/search}" method="post">
+        <input
+                type="text"
+                name="keyword"
+                th:value="${keyword}"
+                placeholder="검색어를 입력하세요..."
+        />
+        <button type="submit">검색</button>
+    </form>
+
+    <div class="add-link">
+        <a th:href="@{/add}">새로운 항목 추가</a>
+    </div>
+
+    <hr />
+    <h2>실시간 인기 동영상</h2>
+    <div th:if="${not #lists.isEmpty(lists)}">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>제목</th>
+                <th>URL</th>
+                <th>댓글</th>
+                <th>좋아요</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="item : ${lists}">
+                <tr>
+                    <td th:text="${item.itemName}">item.itemName</td>
+                    <td>
+                        <div class="video-thumbnail" th:data-video-id="${item.videoId}" style ="cursor: pointer;">
+                            <img th:src="'https://img.youtube.com/vi/' + ${item.videoId} + '/hqdefault.jpg'" alt="YouTube Thumbnail" style="width:120px; height:90px;"/>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="comment-btn" th:data-item-id="${item.id}">
+                            댓글 보기
+                        </button>
+                    </td>
+                    <td>
+                        <button class="comment-like" th:data-item-id="${item.id}" th:text="|좋아요(${item.like})|">
+                            좋아요
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4"> <div class="comment-section" th:id="'comments-' + ${item.id}">
+                        <p><strong>댓글 목록</strong></p>
+                        <div class="comment-list"></div>
+                    </div>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+    <div th:if="${#lists.isEmpty(lists)}">
+        <p class="no-results">추가된 항목이 없습니다.</p>
+    </div>
+</div>
+
+<script th:src="@{/js/comment.js}"></script>
+<script th:src="@{/js/like.js}"></script>
+<script th:src="@{/js/video-player.js}"></script>
+</body>
+</html>
